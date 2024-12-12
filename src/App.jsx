@@ -6,8 +6,15 @@ function App() {
 
   return (
     <>
+      {/* text area for keywords */}
       <div>
-        <h1>Rating</h1>
+        <p>Keywords</p>
+        <textarea></textarea>
+      </div>
+
+      {/* star rating */}
+      <div>
+        <p>Rating</p>
         <div>
           {[1, 2, 3, 4, 5].map((star) => (
             <span
@@ -27,6 +34,8 @@ function App() {
           <p>Selected Rating: {rating}</p>
         </div>
       </div>
+      {/* submit button */}
+      <button className="btn">Submit</button>
     </>
   );
 }
