@@ -1,23 +1,21 @@
 export function RatingSelector({ rating, setRating }) {
     return (
         <div>
-          <p>Rating</p>
-          <div>
+          <label className="rating-label">Rating</label>
+          <div className="star-container">
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
                 className="star"
                 style={{
-                  cursor: "pointer",
                   color: rating >= star ? "gold" : "gray",
-                  fontSize: "35px",
                 }}
                 onClick={() => setRating(star)}
               >
                 ★
               </span>
             ))}
-            <p>Selected Rating: {rating}</p>
+            <p className="rating-text">Selected Rating: {rating}</p>
           </div>
         </div>
       );

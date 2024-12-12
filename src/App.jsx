@@ -46,7 +46,7 @@ function App() {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="review-form">
       <KeywordsInput keywords={keywords} setKeywords={setKeywords} />
       <RatingSelector rating={rating} setRating={setRating} />
       <SubmitButton />
