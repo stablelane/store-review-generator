@@ -107,43 +107,43 @@ body {
   }
   /* Mobile Breakpoint */
 @media (max-width: 768px) {
-    /* Make review form full width on small screens */
+    
     .review-form {
       width: 100%;
       max-width: 350px;
       padding: 15px;
     }
   
-    /* Adjust the font size for form title */
+    
     .form-title {
       font-size: 20px;
     }
   
-    /* Adjust the textarea size */
+    
     textarea {
       width: 93%;
       font-size: 16px;
     }
   
-    /* Adjust the rating star size */
+   
     .star {
       font-size: 30px;
     }
   
-    /* Ensure review output is responsive */
+    
     .review-output {
       width: 90%;
       min-width: 90%;
-      max-width: 350px;
+      max-width: 300px;
     }
   
-    /* Adjust button size */
+    
     .submit-button {
       font-size: 14px;
       padding: 10px;
     }
   
-    /* Adjust the copy button size and position */
+    
     .copy-button {
       padding: 5px 8px;
       font-size: 10px;
