@@ -1,18 +1,30 @@
+import { KeywordsInput } from "./components/KeywordsInput";
+import { RatingSelector } from "./components/RatingSelector";
+import { SubmitButton } from "./components/SubmitButton";
 import "./index.css"
 import { useState } from "react";
-  
+
 function App() {
   const [rating, setRating] = useState(0);
   const [keywords, setKeywords] = useState("");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (!keywords.trim()) {
+      alert("Please enter some keywords.");
+      return;
+    }
   
-  async function handleSubmit() {
+    if (rating === 0) {
+      alert("Please select a rating.");
+      return;
+    }
     try {
       console.log("working")
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo", // Free-tier friendly model
@@ -34,38 +46,12 @@ function App() {
     }
   }
   return (
-    <>
-      {/* text area for keywords */}
-      <div>
-        <p>Keywords</p>
-        <textarea value={keywords} onChange={e => setKeywords(e.target.value)}></textarea>
-      </div>
-
-      {/* star rating */}
-      <div>
-        <p>Rating</p>
-        <div>
-          {[1, 2, 3, 4, 5].map((star) => (
-            <span
-              key={star}
-              className="star"
-              style={{
-                cursor: 'pointer',
-                color: rating >= star ? 'gold' : 'gray',
-                fontSize: '35px',
-              }}
-              onClick={() => setRating(star)}
-            >
-              ★
-            </span>
-            
-          ))}
-          <p>Selected Rating: {rating}</p>
-        </div>
-      </div>
-      {/* submit button */}
-      <button className="btn" onClick={handleSubmit}>Submit</button>
-    </>
+    <form onSubmit={handleSubmit}>
+      <KeywordsInput keywords={keywords} setKeywords={setKeywords} />
+      <RatingSelector rating={rating} setRating={setRating} />
+      <SubmitButton />
+    </form>
+      
   );
 }
 
