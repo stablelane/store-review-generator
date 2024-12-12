@@ -1,4 +1,4 @@
-# React Review App
+# Store Review Generator
 
 This is a React app that allows users to generate brief reviews for a store based on keywords and a rating. It uses OpenAI's GPT-3.5 model to generate the reviews.
 
