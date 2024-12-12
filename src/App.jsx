@@ -1,5 +1,6 @@
 import { KeywordsInput } from "./components/KeywordsInput";
 import { RatingSelector } from "./components/RatingSelector";
+import { ReviewOutput } from "./components/ReviewOutput";
 import { SubmitButton } from "./components/SubmitButton";
 import "./index.css"
 import { useState } from "react";
@@ -7,6 +8,8 @@ import { useState } from "react";
 function App() {
   const [rating, setRating] = useState(0);
   const [keywords, setKeywords] = useState("");
+  const [review, setReview] = useState("");
+
   async function handleSubmit(event) {
     event.preventDefault();
     if (!keywords.trim()) {
@@ -40,17 +43,22 @@ function App() {
       }
   
       const data = await response.json();
-      console.log(data.choices[0].message.content.trim());
+      const generatedReview = data.choices[0].message.content.trim();
+      setReview(generatedReview);
+      console.log(setReview)
     } catch (error) {
       console.error("Error:", error.message);
     }
   }
   return (
-    <form onSubmit={handleSubmit} className="review-form">
-      <KeywordsInput keywords={keywords} setKeywords={setKeywords} />
-      <RatingSelector rating={rating} setRating={setRating} />
-      <SubmitButton />
-    </form>
+    <>
+      <form onSubmit={handleSubmit} className="review-form">
+        <KeywordsInput keywords={keywords} setKeywords={setKeywords} />
+        <RatingSelector rating={rating} setRating={setRating} />
+        <SubmitButton />
+      </form>
+      <ReviewOutput review={review} />
+    </>
       
   );
 }

@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -9,6 +10,7 @@ body {
   }
   
   .review-form {
+    margin: 0 auto;
     background-color: #16213e;
     width: 100%;
     max-width: 500px;
@@ -77,5 +79,28 @@ body {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
+  }
+  .review-output {
+    background-color: #0f3460;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: relative;
+    min-height: 100px;
+    width: 100%;
+    max-width: 620px;
+  }
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #a2a8d3;
+    color: #16213e;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
   }
   
